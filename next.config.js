@@ -46,13 +46,29 @@ module.exports = {
             }
           }
         ]
-      }, {
+      },
+            {
+        test: /\.styl/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+              localIdentName: '__[hash:base64:5]'
+            }
+          },
+          'stylus-loader'
+        ],
+      },
+      {
         test: /\.(png|jpe?g|gif)(\?.*)?$/,
         loader: 'file-loader',
         options: {
           name: 'static/images/[name].[hash:8].[ext]'
         }
-      }, {
+      },
+      {
         test: /\.eot(\?.*)?$/,
         loader: 'url-loader?limit=100000',
         options: {
@@ -60,7 +76,8 @@ module.exports = {
           mimetype: 'application/vnd.ms-fontobject',
           name: 'static/fonts/[name].[hash:8].[ext]'
         }
-      }, {
+      },
+      {
         test: /\.otf(\?.*)?$/,
         loader: 'url-loader?limit=100000',
         options: {
@@ -68,7 +85,8 @@ module.exports = {
           mimetype: 'font/opentype',
           name: 'static/fonts/[name].[hash:8].[ext]'
         }
-      }, {
+      },
+      {
         test: /\.ttf(\?v=\d+.\d+.\d+)?$/,
         loader: 'url-loader?limit=100000',
         options: {
@@ -76,7 +94,8 @@ module.exports = {
           mimetype: 'application/octet-stream',
           name: 'static/fonts/[name].[hash:8].[ext]'
         }
-      }, {
+      },
+      {
         test: /\.woff(\?.*)?$/,
         loader: 'url-loader?limit=100000',
         options: {
@@ -84,7 +103,8 @@ module.exports = {
           mimetype: 'application/font-woff',
           name: 'static/fonts/[name].[hash:8].[ext]'
         }
-      }, {
+      },
+      {
         test: /\.woff2(\?.*)?$/,
         loader: 'url-loader?limit=100000',
         options: {
@@ -92,7 +112,8 @@ module.exports = {
           mimetype: 'application/font-woff2',
           name: 'static/fonts/[name].[hash:8].[ext]'
         }
-      }, {
+      },
+      {
         test: /\.svg(\?v=\d+.\d+.\d+)?$/,
         loader: 'url-loader?limit=100000',
         options: {
